@@ -46,7 +46,7 @@ It could also do with your help.  If you find a problem, something you think cou
 \section{Available Methods}
 To begin with (assuming you have installed this package), you need to load it into your R session:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 library( EnsemblRest )
 @
 
@@ -55,10 +55,15 @@ The following subsections then list the methods available to you.
 \pagebreak
 
 \subsection{Information}
+
+<<eval=TRUE, echo=TRUE>>=
+message("This vignette does not evaluate any code because it currently relies on the no-longer-existing beta.rest.ensembl.org")
+@ 
+
 \subsubsection{\code{isAlive}}
 
 Firstly, we can check to see that the REST API is accepting calls:
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 isAlive()
 @
 
@@ -66,7 +71,7 @@ isAlive()
 
 To get a list of available species on the server, you can use the \code{infoSpecies} call\footnote{\url{http://beta.rest.ensembl.org/documentation/info/species}}.
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 infoSpecies()[1:3] # Just the first 3
 @
 
@@ -74,7 +79,7 @@ infoSpecies()[1:3] # Just the first 3
 
 The \code{infoAssembly} call\footnote{\url{http://beta.rest.ensembl.org/documentation/info/assembly_info}} returns information about the currently available assemblies in the given species.
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 infoAssembly( 'human' )
 @
 
@@ -82,7 +87,7 @@ infoAssembly( 'human' )
 
 The \code{assemblyDetails} call\footnote{\url{http://beta.rest.ensembl.org/documentation/info/assembly_stats}} returns information about one of these assemblies.
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 assemblyDetails( 'X', 'human' )
 @
 
@@ -90,7 +95,7 @@ assemblyDetails( 'X', 'human' )
 
 The \code{infoComparas} call\footnote{\url{http://beta.rest.ensembl.org/documentation/info/comparas}} lists the available comparative genomics databases.
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 infoComparas()
 @
 
@@ -98,7 +103,7 @@ infoComparas()
 
 The \code{infoData} call\footnote{\url{http://beta.rest.ensembl.org/documentation/info/data}} shows the data releases available to the REST service
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 infoData()
 @
 
@@ -106,7 +111,7 @@ infoData()
 
 \code{infoRest} shows the current version\footnote{\url{http://beta.rest.ensembl.org/documentation/info/rest}} of the REST service
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 infoRest()
 @
 
@@ -114,7 +119,7 @@ infoRest()
 
 And finally in the info section, \code{infoSoftware} shows\footnote{\url{http://beta.rest.ensembl.org/documentation/info/software}} the current version of the Ensembl API.
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 infoSoftware()
 @
 
@@ -126,13 +131,13 @@ infoSoftware()
 
 This method\footnote{\url{http://beta.rest.ensembl.org/documentation/info/rest}} fetches the gene tree in New Hampshire format for a given Ensembl gene tree identifier.
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 geneTree( 'ENSGT00390000003602' )
 @
 
 it is also possible to specify the NH format you require (ie: for full format):
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 geneTree( 'ENSGT00390000003602', nh_format='full' )
 @
 
@@ -140,7 +145,7 @@ geneTree( 'ENSGT00390000003602', nh_format='full' )
 
 When given an Ensembl Gene ID, returns the homology\footnote{\url{http://beta.rest.ensembl.org/documentation/info/homology_ensemblgene}} information for it.
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 hResponse = homologyById( 'ENSG00000170037' )
 hResponse                 # The response object
 hResponse[[1]]$homologies[1:2,] # Just the top 2 homologies to save room
@@ -150,7 +155,7 @@ hResponse[[1]]$homologies[1:2,] # Just the top 2 homologies to save room
 
 You can also retrieve homology information\footnote{\url{http://beta.rest.ensembl.org/documentation/info/homology_symbol}} given a symbol and a species;
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 hResponse = homologyBySymbol( 'BRCA2', 'human' )
 hResponse                 # The response object
 hResponse[[1]]$homologies[1:2,] # Again, just the top 2 homologies to save room
@@ -158,7 +163,7 @@ hResponse[[1]]$homologies[1:2,] # Again, just the top 2 homologies to save room
 
 And using \code{format='condensed'}, you can get a more condensed result:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 hResponse = homologyBySymbol( 'BRCA2', 'human', format='condensed' )
 hResponse                 # The response object
 hResponse[[1]]$homologies[1:10,]
@@ -176,7 +181,7 @@ As a single object may have multiple synonyms, this will cause the object to exi
 
 Firstly we can get all external references\footnote{\url{http://beta.rest.ensembl.org/documentation/info/xref_id}} for a given Ensembl ID:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 xrefsById( 'ENSG00000170037' )
 @
 
@@ -184,7 +189,7 @@ xrefsById( 'ENSG00000170037' )
 
 Or, we can look for an external reference primary accession\footnote{\url{http://beta.rest.ensembl.org/documentation/info/xref_name}} (given a species):
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 xrefsByName( 'NM_004333', 'human' )
 @
 
@@ -192,7 +197,7 @@ xrefsByName( 'NM_004333', 'human' )
 
 And we can finally look up all Ensembl objects referenced by an external symbol for a given species\footnote{\url{http://beta.rest.ensembl.org/documentation/info/xref_external}}:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 xrefsBySymbol( 'BRAF', 'human' )
 @
 
@@ -204,19 +209,19 @@ xrefsBySymbol( 'BRAF', 'human' )
 
 We can also look for features along a given range\footnote{\url{http://beta.rest.ensembl.org/documentation/info/feature_region}} (by default this will just look for genes):
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 featuresByRegion( '7:140424943-140624564', 'human' )
 @
 
 And by using the \code{feature} parameter, we can specify what we're looking for
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 featuresByRegion( '7:140424943-140624564', 'human', feature='transcript' )
 @
 
 You can specify multiple features (columns which don't exist for a given type of result will be filled with \code{NA})
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 featuresByRegion( '7:140424943-140624564', 'human', feature=c('gene','transcript') )
 @
 
@@ -228,7 +233,7 @@ featuresByRegion( '7:140424943-140624564', 'human', feature=c('gene','transcript
 
 To find the database and species containing a known Ensembl id, you can use the lookup function\footnote{\url{http://beta.rest.ensembl.org/documentation/info/lookup}} like so:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 lookupId( 'ENSG00000170037' )
 @
 
@@ -244,7 +249,7 @@ There is currently an issue with \code{mappingCdna}, \code{mappingCds} and \code
 
 The \code{mapping} function\footnote{\url{http://beta.rest.ensembl.org/documentation/info/assembly_map}} converts the co-ordinates in one assembly into another, ie:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 mapping( 'NCBI36', 'X:1..10000:1', 'GRCh37', 'human' )
 @
 
@@ -254,7 +259,7 @@ As you can see, it returns one \code{GRanges} object per result, with an \code{o
 
 This function\footnote{\url{http://beta.rest.ensembl.org/documentation/info/assembly_cdna}} converts CDNA co-ordinates for a given Ensembl Transcript to genomic co-ordinates.
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 mappingCdna( 'ENST00000288602', '100..300' )
 @
 
@@ -262,7 +267,7 @@ mappingCdna( 'ENST00000288602', '100..300' )
 
 Or you can convert CDS co-ordinates\footnote{\url{http://beta.rest.ensembl.org/documentation/info/assembly_cds}} instead of CDNA ones:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 mappingCds( 'ENST00000288602', '100..300' )
 @
 
@@ -270,7 +275,7 @@ mappingCds( 'ENST00000288602', '100..300' )
 
 And finally, it is possible to convert from protein co-ordinates to genomic ones using the \code{mappingTranslation} method\footnote{\url{http://beta.rest.ensembl.org/documentation/info/assembly_translation}}:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 mappingTranslation( 'ENSP00000288602', '100..300' )
 @
 
@@ -282,19 +287,19 @@ mappingTranslation( 'ENSP00000288602', '100..300' )
 
 Fetch a sequence based on the stable id of an Ensembl feature\footnote{\url{http://beta.rest.ensembl.org/documentation/info/sequence_id}} (I'm using \code{str} here to avoid overflowing the pdf too much):
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 str( sequenceById( 'ENSG00000157764' ), give.head=F, strict.width='cut' )
 @
 
 You can also get different types of sequence, here is an example for the spliced CDNA sequence of a transcript:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 str( sequenceById( 'ENST00000473358', type='cdna' ), give.head=F, strict.width='cut' )
 @
 
 And again, for the protein coding
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 str( sequenceById( 'ENSP00000334393', type='protein' ), give.head=F, strict.width='cut' )
 @
 
@@ -302,7 +307,7 @@ str( sequenceById( 'ENSP00000334393', type='protein' ), give.head=F, strict.widt
 
 You can also just query for a region of a given species\footnote{\url{http://beta.rest.ensembl.org/documentation/info/sequence_region}}:
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 str( sequenceByRegion( 'X:1000000..1000100:1', 'human' ), give.head=F, strict.width='cut' )
 @
 
@@ -314,7 +319,7 @@ If you pass \code{format='fasta'} to the above method, it will just return you a
 
 \subsubsection{variationAllele}
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 var = variationAllele( 'C', '9:22125503-22125502:1', 'human' )
 var                       # The response object
 var[[1]]$transcripts[1:2] # Just the top 2 transcripts of the first response to save room
@@ -322,7 +327,7 @@ var[[1]]$transcripts[1:2] # Just the top 2 transcripts of the first response to 
 
 \subsubsection{variationId}
 
-<<eval=TRUE,echo=TRUE>>=
+<<eval=FALSE,echo=TRUE>>=
 var = variationId( 'COSM476', 'human' )
 var                       # The response object
 var[[1]]$transcripts[1:2] # Again, just the top 2 transcripts to save room

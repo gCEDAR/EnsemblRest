@@ -53,7 +53,7 @@
 \details{
   Returns a \code{data.frame} containing the feature response.
 }
-\examples{
+\examples{\dontrun{
   featuresById( 'ENSG00000157764' )
   featuresByRegion( '7:140424943-140624564', 'human', feature=c( 'gene', 'transcript' ) )
-}
+}}

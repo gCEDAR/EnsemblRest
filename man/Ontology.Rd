@@ -40,10 +40,10 @@
 \details{
   Returns a \code{\link{EnsOntology}} object.
 }
-\examples{
+\examples{\dontrun{
   ontologyId( 'GO:0005667' )
   ontologyName( 'transcription factor complex' )
   ontologyAncestors( 'GO:0005667' )
   ontologyAncestorsChart( 'GO:0005667' )
   ontologyDescendents( 'GO:0005667' )
-}
+}}

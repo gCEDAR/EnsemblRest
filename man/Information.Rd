@@ -52,8 +52,8 @@
 
   The method \code{infoSpecies} returns a list of \code{\link{EnsSpecies}} objects.
 }
-\examples{
+\examples{\dontrun{
   infoAssembly( 'human' )
   assemblyDetails( 'X', 'mouse' )
   infoSpecies( 'ensembl' )
-}
+}}

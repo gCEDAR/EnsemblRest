@@ -48,7 +48,7 @@
 \author{
   Tim Yates
 }
-\examples{
+\examples{\dontrun{
   sequenceById( 'ENSG00000157764' )
   sequenceByRegion( 'X:1_000_000..1_000_100:1', 'human', format='fasta' )
-}
+}}

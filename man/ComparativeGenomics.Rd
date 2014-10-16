@@ -68,10 +68,10 @@
 
   \code{homologyById} and \code{homologyBySymbol} return a \code{\link{EnsHomologyResponse}} object.
 }
-\examples{
+\examples{\dontrun{
   geneTree( 'ENSGT00390000003602' )
   geneTreeMember( 'ENSG00000157764')
   geneTreeSymbol( 'BRCA2', 'homo_sapiens' )
   homologyById( 'ENSG00000170037' )
   homologyBySymbol( 'BRCA2', 'human' )
-}
+}}

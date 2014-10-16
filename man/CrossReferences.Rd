@@ -50,8 +50,8 @@
   different datasources with different columns, so the results are returned in a data.frame containing
   a superset of column names, with non-applicable columns for a given result filled with \code{NA}.
 }
-\examples{
+\examples{\dontrun{
   xrefsById( 'ENSG00000170037' )
   xrefsByName( 'NM_004333', 'human', external_db='HGNC' )
   xrefsBySymbol( 'BRAF', 'human' )
-}
+}}

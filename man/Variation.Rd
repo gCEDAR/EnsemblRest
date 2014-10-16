@@ -27,7 +27,7 @@
 \details{
   A \code{\link{EnsVariantConsequence}} object.
 }
-\examples{
+\examples{\dontrun{
   variationAllele( 'C', '9:22125503-22125502:1', 'human' )
   variationId( 'COSM476', 'human' )
-}
+}}

@@ -25,6 +25,6 @@
 \details{
   Returns a \code{\link{EnsTaxonomy}} object.
 }
-\examples{
+\examples{\dontrun{
   taxonomyId( '9606' )
-}
+}}

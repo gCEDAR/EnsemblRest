@@ -24,6 +24,6 @@
 \details{
   Returns a \code{data.frame} containing the lookup response.
 }
-\examples{
+\examples{\dontrun{
   lookupId( 'ENSG00000170037' )
-}
+}}

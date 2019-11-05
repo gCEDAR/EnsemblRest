@@ -36,9 +36,10 @@ featuresById = function( id,
     # Strip NULL and make a data.frame
     data.frame( e[ !sapply( e, is.null ) ] )
   }
-  as( as( do.call( 'rbind.fill',
+  resdf = do.call( 'rbind.fill',
     lapply( .load.and.parse( .Ensembl$featureId, c( id=id ), params ), munger )
-  ), 'RangedData' ), 'GRanges' )
+  )
+  makeGRangesFromDataFrame(resdf, keep.extra.columns=TRUE, seqnames.field="space")
 }
 
 featuresByRegion = function( region, species,
@@ -72,7 +73,8 @@ featuresByRegion = function( region, species,
     # Strip NULL and make a data.frame
     data.frame( e[ !sapply( e, is.null ) ] )
   }
-  as( as( do.call( 'rbind.fill',
+  resdf = do.call( 'rbind.fill',
     lapply( .load.and.parse( .Ensembl$feature, c( species=species, region=region ), params ), munger )
-  ), 'RangedData' ), 'GRanges' )
+  )
+  makeGRangesFromDataFrame(resdf, keep.extra.columns=TRUE, seqnames.field="space")
 }

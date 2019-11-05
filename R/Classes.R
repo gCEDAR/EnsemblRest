@@ -201,11 +201,13 @@ setRefClass( "EnsVariantConsequence",
                  if( !is.null( x ) ) {
                    is_somatic <<- x$is_somatic == '1'
                    name <<- if( is.null( x$name ) ) '' else x$name
-                   location <<- as( as( data.frame( space=x$location$name,
-                                                    start=as.numeric( x$location$start ),
-                                                    end=as.numeric( x$location$end ),
-                                                    strand=.strandString( x$location$strand ),
-                                                    coord_system=x$location$coord_system ), 'RangedData' ), 'GRanges' )
+
+                   resdf <- data.frame( space=x$location$name,
+                                        start=as.numeric( x$location$start ),
+                                        end=as.numeric( x$location$end ),
+                                        strand=.strandString( x$location$strand ),
+                                        coord_system=x$location$coord_system )
+                   location <<- makeGRangesFromDataFrame(resdf, keep.extra.columns=TRUE, seqnames.field="space")
                    hgvs <<- unlist( lapply( names( x$hgvs ), function( n ) {
                      r = x$hgvs[ n ]
                      names( r ) = n

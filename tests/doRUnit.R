@@ -15,7 +15,7 @@ Running unit tests
   library( package=pkg, character.only=TRUE )
 
   #Fail on warnings
-  options( warn=2 )
+  options( warn=1 )
   
   # Get the pattern (if there is one?)
   patt = Sys.getenv( "RUNITFILEPATTERN" )
